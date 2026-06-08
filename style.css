@@ -1,0 +1,217 @@
+/* ============================================
+   Mohamed Aziz Arfaoui — Personal Profile
+   Aesthetic: Sleek dark editorial with bold accents
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+/* ── Variables ── */
+:root {
+  --bg:         #0d0d0d;
+  --surface:    #161616;
+  --border:     #2a2a2a;
+  --accent:     #e8ff00;       /* electric yellow — sport energy */
+  --accent2:    #ff3c3c;       /* red for football passion */
+  --text:       #f0ede8;
+  --muted:      #888;
+  --radius:     12px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.75;
+  min-height: 100vh;
+  padding: 0 1.5rem 4rem;
+  max-width: 720px;
+  margin: 0 auto;
+
+  /* subtle noise grain */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* ── Page entry animation ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+body > * {
+  animation: fadeUp 0.6s ease both;
+}
+
+/* ── Heading 1 — Hero name ── */
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 10vw, 6rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--text);
+  margin-top: 3.5rem;
+  animation-delay: 0.05s;
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+  margin-top: 0.6rem;
+  border-radius: 2px;
+}
+
+/* ── Profile image ── */
+img {
+  display: block;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  margin: 2rem 0;
+  box-shadow: 0 0 0 6px rgba(232, 255, 0, 0.08);
+  animation-delay: 0.1s;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 10px rgba(232, 255, 0, 0.12);
+}
+
+/* ── Intro paragraph ── */
+body > p:first-of-type {
+  color: var(--muted);
+  font-size: 1rem;
+  max-width: 500px;
+  animation-delay: 0.15s;
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Flashscore link ── */
+body > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--accent);
+  color: #000;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.55rem 1.2rem;
+  border-radius: 4px;
+  margin-bottom: 3rem;
+  animation-delay: 0.2s;
+  transition: background var(--transition), transform var(--transition);
+}
+
+body > a:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+/* ── Section headings ── */
+h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin-top: 3rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation-delay: 0.25s;
+}
+
+/* coloured left stripe per section */
+h2:nth-of-type(1) { border-left: 4px solid var(--accent);  padding-left: 0.75rem; } /* Cars */
+h2:nth-of-type(2) { border-left: 4px solid var(--accent2); padding-left: 0.75rem; } /* Football */
+h2:nth-of-type(3) { border-left: 4px solid var(--muted);   padding-left: 0.75rem; } /* Follow Me */
+
+/* ── Section body paragraphs ── */
+h2 + p {
+  color: var(--muted);
+  font-size: 1rem;
+  max-width: 480px;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  animation-delay: 0.3s;
+}
+
+/* ── Social list ── */
+ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  animation-delay: 0.35s;
+}
+
+ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: background var(--transition),
+              border-color var(--transition),
+              color var(--transition),
+              transform var(--transition);
+}
+
+/* Facebook hover */
+ul li:nth-child(1) a:hover {
+  background: #1877f2;
+  border-color: #1877f2;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Instagram hover */
+ul li:nth-child(2) a:hover {
+  background: radial-gradient(circle at 30% 107%,
+    #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  border-color: transparent;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ── Selection color ── */
+::selection {
+  background: var(--accent);
+  color: #000;
+}
